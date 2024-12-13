@@ -1,0 +1,1955 @@
+////////////////////////////////////////////////////////////
+// DEFINE BOOLEAN LAYERS
+////////////////////////////////////////////////////////////
+LAYOUT USE DATABASE PRECISION YES
+
+layer BPR 0
+layer VBPR 1
+layer NW 2
+layer ACT 3
+layer GATE 4
+layer GCUT 5
+layer DUMMY 6
+layer NIM 7
+layer PIM 8
+layer M0A 9
+layer V0A 10
+layer GCON 11
+layer M0B 12
+layer V0B 13
+layer M1 14
+layer V1 15
+layer M2 16
+layer V2 17
+layer M3 18
+layer V3 19
+layer M4 20
+layer V4 21
+layer M5 22
+layer V5 23
+layer M6 24
+layer V6 25
+layer M7 26
+layer V7 27
+layer M8 28
+layer V8 29
+layer M9 30
+layer V9 31
+layer M10 32
+layer V10 33
+layer M11 34
+layer V11 35
+layer M12 36
+layer V12 37
+layer M13 38
+layer VRDL 39
+layer RDL 40
+
+implant = NIM OR PIM
+
+
+////////////////////////////////////////////////////////////
+// DEFINE VARIABLES | NOTE: NUMBERS DEFAULT TO MICRONS
+////////////////////////////////////////////////////////////
+
+VARIABLE METAL_LOW_DEN_WINDOW_SIZE 75
+VARIABLE METAL_LOW_DEN_WINDOW_STEP 37.5
+
+
+VARIABLE METAL_HIGH_DEN_WINDOW_SIZE 100
+VARIABLE METAL_HIGH_DEN_WINDOW_STEP 50
+
+VARIABLE NW_1 0.0575
+VARIABLE NW_2 0.084
+VARIABLE NW_3 6.237
+VARIABLE NW_5 0.007
+
+VARIABLE ACT_1 0.021
+VARIABLE ACT_2 0.0215
+VARIABLE ACT_3 0.084
+VARIABLE ACT_5 0.010
+
+VARIABLE BPR_1 0.0315
+VARIABLE BPR_2 0.084
+
+VARIABLE VBPR_2 0.0105
+VARIABLE VBPR_3 0.015
+VARIABLE VBPR_4 0.0135
+VARIABLE VBPR_5 0
+VARIABLE VBPR_6 0.027
+VARIABLE VBPR_7 0.010
+VARIABLE VBPR_8 0.010
+
+VARIABLE GATE_1 0.015
+VARIABLE GATE_2 0.027
+VARIABLE GATE_4 0.0215
+VARIABLE GATE_5 0.040
+VARIABLE GATE_8 0.006
+
+VARIABLE GCON_1 0.013
+VARIABLE GCON_2 0.015
+VARIABLE GCON_4 0.001
+VARIABLE GCON_5 0.025
+VARIABLE GCON_6 0.028
+VARIABLE GCON_7 0.006
+VARIABLE GCON_8 0.025
+VARIABLE GCON_9 0.0135
+VARIABLE GCON_10 0.180
+VARIABLE GCON_12 0.165
+VARIABLE GCON_13 0.180
+
+VARIABLE DUMMY_1 0.015
+VARIABLE DUMMY_2 0.040
+VARIABLE DUMMY_3 0.1155
+
+VARIABLE GCUT_1 0.0105
+VARIABLE GCUT_2 0.042
+VARIABLE GCUT_3 0.069
+VARIABLE GCUT_4 0.0205
+VARIABLE GCUT_10 0.105
+
+VARIABLE NIM_PIM_1 0.084
+VARIABLE NIM_PIM_2 0.0575
+VARIABLE NIM_PIM_3 0.020
+VARIABLE NIM_PIM_4 0.0135
+VARIABLE NIM_PIM_5 4.830
+
+VARIABLE M0A_1 0.015
+VARIABLE M0A_2 0.006
+VARIABLE M0A_3 0.005
+VARIABLE M0A_4 0.0215
+VARIABLE M0A_5 0.010
+VARIABLE M0A_7 0.011
+VARIABLE M0A_9 0.3225
+
+VARIABLE V0A_2 0.013
+VARIABLE V0A_3 0.029
+VARIABLE V0A_4 0.030
+VARIABLE V0A_6 0.006
+VARIABLE V0A_7 0.001
+VARIABLE V0A_8 0.001
+VARIABLE V0A_9 0.001
+VARIABLE V0A_10 0.008
+VARIABLE V0A_11 0.0165
+VARIABLE V0A_13 0.156 //should be in nm^2
+
+VARIABLE M0B_1 0.011
+VARIABLE M0B_2 0.010
+VARIABLE M0B_3 0.022
+VARIABLE M0B_4 0.020
+VARIABLE M0B_6 0.0035
+VARIABLE M0B_7 4.242 //should be in nm^2
+
+VARIABLE V0B_2 0.014
+VARIABLE V0B_3 0.010
+VARIABLE V0B_4 0.0105
+VARIABLE V0B_5 0.020
+VARIABLE V0B_6 0.022
+VARIABLE V0B_8 0.004
+VARIABLE V0B_9 0
+VARIABLE V0B_10 0
+VARIABLE V0B_11 0.0025
+
+VARIABLE MX_1_1 0.015
+VARIABLE MX_1_2 0.015
+VARIABLE MX_1_3 0.015
+VARIABLE MX_1_4 0.024
+VARIABLE MX_1_5 0.024
+VARIABLE MX_1_6 0.024
+VARIABLE MX_1_7 0.040
+VARIABLE MX_1_8 0.040
+VARIABLE MX_1_9 0.040
+VARIABLE MX_1_10 0.080
+VARIABLE MX_1_11 0.080
+VARIABLE MX_1_12 0.160
+VARIABLE MX_1_13 0.160
+
+VARIABLE MX_2_1 0.015
+VARIABLE MX_2_2 0.015
+VARIABLE MX_2_3 0.015
+VARIABLE MX_2_4 0.024
+VARIABLE MX_2_5 0.024
+VARIABLE MX_2_6 0.024
+VARIABLE MX_2_7 0.040
+VARIABLE MX_2_8 0.040
+VARIABLE MX_2_9 0.040
+VARIABLE MX_2_10 0.080
+VARIABLE MX_2_11 0.080
+VARIABLE MX_2_12 0.160
+VARIABLE MX_2_13 0.160
+
+VARIABLE MX_3_2 0.750
+VARIABLE MX_3_3 0.750
+VARIABLE MX_3_4 1.200
+VARIABLE MX_3_5 1.200
+VARIABLE MX_3_6 1.200
+VARIABLE MX_3_7 2.000
+VARIABLE MX_3_8 2.000
+VARIABLE MX_3_9 2.000
+VARIABLE MX_3_10 4.000
+VARIABLE MX_3_11 4.000
+VARIABLE MX_3_12 8.000
+VARIABLE MX_3_13 8.000
+
+VARIABLE MX_4_1 0.045
+VARIABLE MX_4_2 0.045
+VARIABLE MX_4_3 0.045
+VARIABLE MX_4_4 0.072
+VARIABLE MX_4_5 0.072
+VARIABLE MX_4_6 0.072
+VARIABLE MX_4_7 0.120
+VARIABLE MX_4_8 0.120
+VARIABLE MX_4_9 0.120
+VARIABLE MX_4_10 0.240
+VARIABLE MX_4_11 0.240
+VARIABLE MX_4_12 0.480
+VARIABLE MX_4_13 0.480
+
+VARIABLE MX_5_1 0.135
+VARIABLE MX_5_2 0.135
+VARIABLE MX_5_3 0.135
+VARIABLE MX_5_4 0.216
+VARIABLE MX_5_5 0.216
+VARIABLE MX_5_6 0.216
+VARIABLE MX_5_7 0.360
+VARIABLE MX_5_8 0.360
+VARIABLE MX_5_9 0.360
+VARIABLE MX_5_10 0.720
+VARIABLE MX_5_11 0.720
+VARIABLE MX_5_12 1.440
+VARIABLE MX_5_13 1.440
+
+VARIABLE MX_6_1 0.405
+VARIABLE MX_6_2 0.405
+VARIABLE MX_6_3 0.405
+VARIABLE MX_6_4 0.648
+VARIABLE MX_6_5 0.648
+VARIABLE MX_6_6 0.648
+VARIABLE MX_6_7 1.080
+VARIABLE MX_6_8 1.080
+VARIABLE MX_6_9 1.080
+VARIABLE MX_6_10 2.160
+VARIABLE MX_6_11 2.160
+VARIABLE MX_6_12 4.320
+VARIABLE MX_6_13 4.320
+
+VARIABLE VX_2_1 0.015
+VARIABLE VX_2_2 0.015
+VARIABLE VX_2_3_H 0.015
+VARIABLE VX_2_3_V 0.024
+VARIABLE VX_2_4 0.024
+VARIABLE VX_2_5 0.024
+VARIABLE VX_2_6_H 0.040
+VARIABLE VX_2_6_V 0.024
+VARIABLE VX_2_7 0.040
+VARIABLE VX_2_8 0.040
+VARIABLE VX_2_9_H 0.040
+VARIABLE VX_2_9_V 0.080
+VARIABLE VX_2_10 0.080
+VARIABLE VX_2_11_H 0.080
+VARIABLE VX_2_11_V 0.160
+VARIABLE VX_2_12 0.160
+VARIABLE VX_2_VDRL 0.160
+
+VARIABLE VX_3_1 0.015
+VARIABLE VX_3_2 0.015
+VARIABLE VX_3_3 0.024
+VARIABLE VX_3_4 0.024
+VARIABLE VX_3_5 0.024
+VARIABLE VX_3A_6 0.040
+VARIABLE VX_3B_6 0.024
+VARIABLE VX_3_7 0.070
+VARIABLE VX_3_8 0.070
+VARIABLE VX_3A_9 0.040
+VARIABLE VX_3B_9 0.080
+VARIABLE VX_3_10 0.080
+VARIABLE VX_3A_11 0.080
+VARIABLE VX_3B_11 0.160
+VARIABLE VX_3_12 0.160
+VARIABLE VX_3_VRDL 0.160
+
+VARIABLE VX_5_1 0
+VARIABLE VS_5_2 0.003
+VARIABLE VX_5_3 0
+VARIABLE VS_5_4 0.010
+VARIABLE VX_5_5 0
+VARIABLE VS_5_6 0.010
+VARIABLE VX_5_7 0
+VARIABLE VS_5_8 0.010
+VARIABLE VX_5_9  0
+VARIABLE VS_5_10 0.010
+VARIABLE VX_5_11 0
+VARIABLE VS_5_12 0.010
+VARIABLE VX_5_VRDL 0
+
+VARIABLE VX_6_1 0.003
+VARIABLE VX_6_2 0
+VARIABLE VX_6_3 0.003
+VARIABLE VX_6_4 0
+VARIABLE VX_6_5 0.010
+VARIABLE VX_6_6 0
+VARIABLE VX_6_7 0.010
+VARIABLE VX_6_8 0
+VARIABLE VX_6_9 0.010
+VARIABLE VX_6_10 0
+VARIABLE VX_6_11 0.010
+VARIABLE VX_6_12 0
+VARIABLE VX_6_VRDL 0.010
+
+VARIABLE VX_7_1 0.003
+VARIABLE VX_7_2 0 
+VARIABLE VX_7_3 0.003
+VARIABLE VX_7_4 0
+VARIABLE VX_7_5 0.010
+VARIABLE VX_7_6 0
+VARIABLE VX_7_7 0.010
+VARIABLE VX_7_8 0
+VARIABLE VX_7_9 0.010
+VARIABLE VX_7_10 0
+VARIABLE VX_7_11 0.010
+VARIABLE VX_7_12 0
+VARIABLE VX_7_VRDL 0.080
+
+VARIABLE VX_8_1 0
+VARIABLE VX_8_2 0.003
+VARIABLE VX_8_3 0
+VARIABLE VX_8_4 0.010
+VARIABLE VX_8_5 0
+VARIABLE VX_8_6 0.010
+VARIABLE VX_8_7 0
+VARIABLE VX_8_8 0.010
+VARIABLE VX_8_9 0
+VARIABLE VX_8_10 0.010
+VARIABLE VX_8_11 0
+VARIABLE VX_8_12 0.010
+VARIABLE VX_8_VRDL 0.080
+
+//Vx.9 is in nm^2
+VARIABLE VX_9_1 0.080
+VARIABLE VX_9_2 0.225
+VARIABLE VX_9_3 0.360
+VARIABLE VX_9_4 0.576
+VARIABLE VX_9_5 0.576
+VARIABLE VX_9_6 0.960
+VARIABLE VX_9_7 1.600
+VARIABLE VX_9_8 3.200
+VARIABLE VX_9_9 6.400
+VARIABLE VX_9_10 6.400
+VARIABLE VX_9_11 12.800
+VARIABLE VX_9_12 25.600
+VARIABLE VX_9_VRDL 25.600
+
+VARIABLE RDL_1 1.6
+VARIABLE RDL_2 1.6
+
+VARIABLE GRID 0.005 //5NM
+
+
+//Enabling incremental connectivity for antenna rule checks
+DRC Incremental Connect Yes
+
+////////////////////////////////////////////////////////////
+// TIME TO DO THE FUNNY
+////////////////////////////////////////////////////////////
+
+NW.1 {
+@Minimum vertical width of NW
+
+}
+
+NW.2 {
+@Minimum horizontal width of NW
+
+}
+
+NW.3 {
+@Minimum area/enclosed area of NW
+
+}
+
+NW.4 {
+@NW must be orthogonal
+
+}
+
+NW.5 {
+@Minimum extension of NW past GATE (not cut by GCUT)
+
+}
+
+ACT.1 {
+@Minimum vertical width of ACT
+
+}
+
+ACT.2 {
+@Minimum vertical spacing of ACT
+
+}
+
+ACT.3 {
+@Minimum horizontal width of ACT
+
+}
+
+ACT.4 {
+@ACT should be continuous
+
+}
+
+ACT.5 {
+@Minimum vertical spacing between ACT and BPR
+
+}
+
+ACT.6 {
+@ACT may not bend
+
+}
+
+ACT.7 {
+@ACT must end inside DUMMY layer
+
+}
+
+BPR.1 {
+@BPR Vertical Width
+
+}
+
+BPR.2 {
+@Minimum vertical spacing between BPR LAYERS
+
+}
+
+BPR.3 {
+@BPR must be continuous
+
+}
+
+BPR.4 {
+@BPR may not bend
+
+}
+
+VBPR.1 {
+@VBPR Must be rectangle
+
+}
+
+VBPR.2 {
+@Exact VERTICAL width of VBPR
+
+}
+
+
+VBPR.3 {
+@Exact HORIZONTAL length of VBPR
+
+}
+
+
+VBPR.4 {
+@VBPR enclosure by BPR on two opposite sides, horizontal direction
+
+}
+
+
+VBPR.5 {
+@VBPR enclosure by M0A on two opposite sides, vertical direction
+
+} 
+
+
+VBPR.6 {
+@Minimum horizontal spacing between two VBPR layer
+
+}
+
+
+VBPR.7 {
+@Minimum vertical spacing between two VBPR layer
+
+} 
+
+
+VBPR.8 {
+@Minimum spacing between VBPR and ACTIVE layer polygons not on the same net
+
+}
+
+
+VBPR.9{
+@VBPR may not interact with GCUT or GATE or DUMMY
+
+}
+
+GATE.1 {
+@GATE exact horizontal width
+
+} 
+GATE.2 {
+@Minimum horizontal spacing between GATE or DUMMY layers
+
+} 
+GATE.3 {
+@GATE may not bend
+
+} 
+GATE.4 {
+@GATE min extension past ACT
+
+} 
+GATE.5 {
+@GATE minimum vertical length
+
+} 
+GATE.6 {
+@GATE may not be discontinuous along the vertical axis. Use GCUT layer to mark cuts in the GATE
+
+} 
+GATE.7 {
+@ACT layer vertical edge may not lie inside, or coincide with, the GATE layer
+
+} 
+GATE.8 {
+@Minimum horizontal spacing between ACT and GATE (not cut by GCUT and not interacting with ACT)
+
+} 
+
+GCON.1 {
+@Exact VERTICAL width of GCON
+
+}  
+GCON.2{
+@Exact HORIZONTAL length of GCON
+
+}  
+GCON.3 {
+@GCON must overlap gate
+
+}  
+GCON.4 {
+@Extension past M0B in vertical direction
+
+}  
+GCON.5 {
+@Minimum horizontal spacing between two GCON layer
+
+}  
+GCON.6 {
+@Minimum vertical spacing between two GCON layer
+
+}  
+GCON.7 {
+@Minimum spacing between GCON and M0A layer polygons
+
+}  
+GCON.8 {
+@Minimum horizontal spacing between GCON and GATE layer
+
+}  
+GCON.9 {
+@Minimum vertical spacing between GCON and GCUT
+
+}  
+GCON.10 {
+@Minimum GCON Area
+
+} 
+GCON.11 {
+@GCON may not bend
+
+}
+GCON.12 {
+@Minimum area of overlap between GCON and M0B
+
+} 
+GCON.13{
+@Minimum area of overlap between GCON and GATE
+
+} 
+GCON.14 {
+@GCON may not interact with GCUT or DUMMY
+
+} 
+
+DUMMY.1 {
+@DUMMY exact horizontal width
+
+} 
+DUMMY.2 {
+@DUMMY minimum vertical length
+
+} 
+DUMMY.3 {
+@Minimum vertical space
+
+} 
+DUMMY.4 {
+@DUMMY may not bend
+
+} 
+DUMMY.5 {
+@DUMMY must completely overlap GATE
+
+} 
+
+GCUT.1 {
+@Exact vertical width of GCUT (shape is oriented horizontally)
+
+}
+
+GCUT.2 {
+@Minimum horizontal length of GCUT(shape is oriented horizontally)
+
+}
+
+GCUT.3 {
+@Minimum horizontal space of GCUT
+
+}
+
+GCUT.4 {
+@GCUT minimum space to ACT
+
+}
+
+GCUT.5 {
+@GCUT may not bend
+
+}
+
+GCUT.6 {
+@GCUT vertical edge must coincide with DUMMY vertical edge
+
+}
+
+GCUT.7 {
+@GCUT layer may not exist without the layer GATE
+
+}
+
+GCUT.8 {
+@GCUT layer vertical edge may not lie inside, or coincide with, the GATE layer
+
+}
+
+GCUT.9 {
+@GCUT may not interact with ACT
+
+}
+
+GCUT.10 {
+@Minimum vertical spacing between two GCUT layer
+
+}
+
+NIMPIM.1 {
+@Minimum width/spacing/notch of NIM/PIM
+
+}
+
+NIMPIM.2 {
+@Minimum vertical width of NIM/PIM
+
+}
+
+NIMPIM.3 {
+@Minimum enclose of ACT by NIM/PIM on vertical direction
+
+}
+
+NIMPIM.4 {
+@Minimum enclose of ACT by NIM/PIM on horizontal direction
+
+}
+
+NIMPIM.5 {
+@Minimum NIM/PIM area/enclosed area
+
+}
+
+NIMPIM.6 {
+@NIM and PIM may not overlap
+
+}
+
+
+M0A.1 {
+@Minimum width of M0A
+INTERNAL M0A < M0A_1
+}
+
+M0A.2 {
+@Minimum spacing of M0A to GATE
+EXTERNAL M0A GATE < M0A_2
+}
+
+M0A.3 {
+@Minimum extension of ACT past M0A (horizontal direction)
+
+} 
+
+M0A.4 {
+@Vertical length of M0A
+
+} 
+
+M0A.5 {
+@Vertical spacing of M0A
+
+} 
+
+M0A.6 {
+@M0A may not bend
+
+} 
+
+M0A.7 {
+@Minimum vertical overlap between M0A and ACTIVE
+
+} 
+
+M0A.8 {
+@M0A may not be outside ACTIVE
+
+} 
+
+M0A.9 {
+@Minimum M0A area
+
+} 
+
+V0A.1 {
+@V0A shape is a square
+
+}
+
+V0A.2 {
+@V0A is a square with 13nm edge length
+
+}
+
+V0A.3 {
+@Minimum spacing of V0A - Full alignment
+
+}
+
+V0A.4 {
+@Minimum corner-to-corner spacing between two V0A instances
+
+}
+
+V0A.5 {
+@V0A must always interact with M0A and M0B
+
+}
+
+V0A.6 {
+@V0A enclosure by M0B on two opposite sides, horizontal direction
+
+}
+
+V0A.7 {
+@V0A enclosure by M0B on two opposite sides, vertical direction
+
+}
+
+V0A.8 {
+@V0A enclosure by M0A on two opposite sides, horizontal direction
+
+}
+
+V0A.9 {
+@V0A enclosure by M0A on opposite sides, vertical direction
+
+}
+
+V0A.10 {
+@Minimum space of V0A and M0B of different net
+
+}
+
+V0A.11 {
+@Minimum space of V0A and M0A of different net
+
+}
+
+V0A.12 {
+@V0A may not interact with DUMMY or GATE layer
+
+}
+
+V0A.13 {
+@Minimum area overlap between M0A and V0A
+
+}
+
+M0B.1 {
+@Minimum Vertical width of M0B
+
+} 
+
+M0B.2 {
+@Minimum Vertical spacing of M0B
+
+} 
+
+M0B.3 {
+@Minimum Horizontal width of M0B
+
+} 
+
+M0B.4 {
+@M0B minimum horizontal spacing
+
+} 
+
+M0B.5 {
+@M0B may not bend
+
+} 
+
+M0B.6 {
+@Minimum extension of MOB past GCON
+
+} 
+
+M0B.7 {
+@Minimum M0B area
+
+} 
+
+V0B.1 {
+@V0B shape is a rectangle
+
+}  
+
+V0B.2 {
+@V0B exact horizontal width
+
+}  
+
+V0B.3 {
+@V0B exact vertical width
+
+}  
+
+V0B.4 {
+@Minimum vertical spacing of V0B - Full alignment
+
+}  
+
+V0B.5 {
+@Minimum horizontal spacing of V0B - Full alignment
+
+}  
+
+V0B.6 {
+@Minimum corner-to-corner spacing between two V0B instances
+
+}  
+
+V0B.7 {
+@V0B must always interact with M0B and M1
+
+}  
+
+V0B.8 {
+@V0B enclosure by M0B on two opposite sides, horizontal direction
+
+}  
+
+V0B.9 {
+@V0B enclosure by M0B on two opposite sides, VERTICAL direction
+
+}  
+
+V0B.10 {
+@V0B enclosure by M1 on two opposite sides, horizontal direction
+
+} 
+
+V0B.11 {
+@V0B enclosure by M1 on two opposite sides, VERTICAL direction
+
+} 
+
+Mx.1.1 {
+@(x=1-3) 15nm METALx width minimum
+
+}
+
+Mx.1.2 {
+@(x=1-3) 15nm METALx width minimum
+
+}
+
+Mx.1.3 {
+@(x=1-3) 15nm METALx width minimum
+
+}
+
+Mx.1.4 {
+@(x=4-6) 24nm METALx width minimum
+
+}
+
+Mx.1.5 {
+@(x=4-6) 24nm METALx width minimum
+
+}
+
+Mx.1.6 {
+@(x=4-6) 24nm METALx width minimum
+
+}
+
+Mx.1.7 {
+@(x=7-9) 40nm METALx width minimum
+
+}
+
+Mx.1.8 {
+@(x=7-9) 40nm METALx width minimum
+
+}
+
+Mx.1.9 {
+@(x=7-9) 40nm METALx width minimum
+
+}
+
+Mx.1.10 {
+@(x=10-11) 80nm METALx width minimum
+
+}
+
+Mx.1.11 {
+@(x=10-11) 80nm METALx width minimum
+
+}
+
+Mx.1.12 {
+@(x=12-13) 160nm METALx width minimum
+
+}
+
+Mx.1.13 {
+@(x=12-13) 160nm METALx width minimum
+
+}
+
+Mx.2.1 {
+@(x=1-3) 15nm METALx spacing minimum
+
+} 
+
+Mx.2.2 {
+@(x=1-3) 15nm METALx spacing minimum
+
+} 
+
+Mx.2.3 {
+@(x=1-3) 15nm METALx spacing minimum
+
+} 
+
+Mx.2.4 {
+@(x=4-6) 24nm METALx spacing minimum
+
+} 
+
+Mx.2.5 {
+@(x=4-6) 24nm METALx spacing minimum
+
+} 
+
+Mx.2.6 {
+@(x=4-6) 24nm METALx spacing minimum
+
+} 
+
+Mx.2.7 {
+@(x=7-9) 40nm METALx spacing minimum
+
+}
+
+Mx.2.8 {
+@(x=7-9) 40nm METALx spacing minimum
+
+}
+
+Mx.2.9 {
+@(x=7-9) 40nm METALx spacing minimum
+
+}
+
+Mx.2.10 {
+@(x=10-11) 80nm METALx spacing minimum
+
+} 
+
+Mx.2.10 {
+@(x=10-11) 80nm METALx spacing minimum
+
+} 
+
+Mx.2.12 {
+@(x=12-13) 160nm METALx spacing minimum
+
+}
+
+Mx.2.13 {
+@(x=12-13) 160nm METALx spacing minimum
+
+}
+
+Mx.3.2 {
+@(x=2-3) 750nm METALx maximum width
+
+}
+
+Mx.3.3 {
+@(x=2-3) 750nm METALx maximum width
+
+}
+
+Mx.3.4 {
+@(x=4-6) 1200nm METALx maximum width
+
+}
+
+Mx.3.5 {
+@(x=4-6) 1200nm METALx maximum width
+
+}
+
+Mx.3.6 {
+@(x=4-6) 1200nm METALx maximum width
+
+}
+
+Mx.3.7 {
+@(x=7-9) 2000nm METALx maximum width
+
+}
+
+Mx.3.8 {
+@(x=7-9) 2000nm METALx maximum width
+
+}
+
+Mx.3.9 {
+@(x=7-9) 2000nm METALx maximum width
+
+}
+
+Mx.3.10 {
+@(x=10-11) 4000nm METALx maximum width
+
+}
+
+Mx.3.11 {
+@(x=10-11) 4000nm METALx maximum width
+
+}
+
+Mx.3.12 {
+@(x=12-13) 8000nm METALx maximum width
+
+}
+
+Mx.3.13 {
+@(x=12-13) 8000nm METALx maximum width
+
+}
+
+Mx.4.1 {
+@(x=1-3) 45nm Minimum spacing of METALx wider than 45nm and longer than 45nm
+
+}
+
+Mx.4.2 {
+@(x=1-3) 45nm Minimum spacing of METALx wider than 45nm and longer than 45nm
+
+}
+
+Mx.4.3 {
+@(x=1-3) 45nm Minimum spacing of METALx wider than 45nm and longer than 45nm
+
+}
+
+Mx.4.4 {
+@(x=4-6) 72nm Minimum spacing of METALx wider than 72nm and longer than 72nm
+
+}
+
+Mx.4.5 {
+@(x=4-6) 72nm Minimum spacing of METALx wider than 72nm and longer than 72nm
+
+}
+
+Mx.4.6 {
+@(x=4-6) 72nm Minimum spacing of METALx wider than 72nm and longer than 72nm
+
+}
+
+Mx.4.7 {
+@(x=7-9) 120nm Minimum spacing of METALx wider than 120nm and longer than 120nm
+
+}
+
+Mx.4.8 {
+@(x=7-9) 120nm Minimum spacing of METALx wider than 120nm and longer than 120nm
+
+}
+
+Mx.4.9 {
+@(x=7-9) 120nm Minimum spacing of METALx wider than 120nm and longer than 120nm
+
+}
+
+Mx.4.10 {
+@(x=10-11) 240nm Minimum spacing of METALx wider than 240nm and longer than 240nm
+
+}
+
+Mx.4.11 {
+@(x=10-11) 240nm Minimum spacing of METALx wider than 240nm and longer than 240nm
+
+}
+
+Mx.4.12 {
+@(x=12-13) 480nm Minimum spacing of METALx wider than 480nm and longer than 480nm
+
+}
+
+Mx.4.13 {
+@(x=12-13) 480nm Minimum spacing of METALx wider than 480nm and longer than 480nm
+
+}
+
+Mx.5.1 {
+@(x=1-3) 135nm Minimum spacing of METALx wider than 135nm and longer than 135nm
+
+}
+
+Mx.5.2 {
+@(x=1-3) 135nm Minimum spacing of METALx wider than 135nm and longer than 135nm
+
+}
+
+Mx.5.3 {
+@(x=1-3) 135nm Minimum spacing of METALx wider than 135nm and longer than 135nm
+
+}
+
+Mx.5.4 {
+@(x=4-6) 216nm Minimum spacing of METALx wider than 216nm and longer than 216nm
+
+}
+
+Mx.5.5 {
+@(x=4-6) 216nm Minimum spacing of METALx wider than 216nm and longer than 216nm
+
+}
+
+Mx.5.6 {
+@(x=4-6) 216nm Minimum spacing of METALx wider than 216nm and longer than 216nm
+
+}
+
+Mx.5.7 {
+@(x=7-9) 360nm Minimum spacing of METALx wider than 360nm and longer than 360nm
+
+}
+
+Mx.5.8 {
+@(x=7-9) 360nm Minimum spacing of METALx wider than 360nm and longer than 360nm
+
+}
+
+Mx.5.9 {
+@(x=7-9) 360nm Minimum spacing of METALx wider than 360nm and longer than 360nm
+
+}
+
+Mx.5.10 {
+@(x=10-11) 720nm Minimum spacing of METALx wider than 720nm and longer than 720nm
+
+}
+
+Mx.5.11 {
+@(x=10-11) 720nm Minimum spacing of METALx wider than 720nm and longer than 720nm
+
+}
+
+Mx.5.12 {
+@(x=12-13) 1440nm Minimum spacing of METALx wider than 1440nm and longer than 1440nm
+
+}
+
+Mx.5.13 {
+@(x=12-13) 1440nm Minimum spacing of METALx wider than 1440nm and longer than 1440nm
+
+}
+
+Mx.6.1 {
+@(x=1-3) Minimum spacing of METALx wider than 405nm and longer than 405nm
+
+}
+
+Mx.6.2 {
+@(x=1-3) Minimum spacing of METALx wider than 405nm and longer than 405nm
+
+}
+
+Mx.6.3 {
+@(x=1-3) Minimum spacing of METALx wider than 405nm and longer than 405nm
+
+}
+
+Mx.6.4 {
+@(x=4-6) Minimum spacing of METALx wider than 648nm and longer than 648nm
+
+}
+
+Mx.6.5 {
+@(x=4-6) Minimum spacing of METALx wider than 648nm and longer than 648nm
+
+}
+
+Mx.6.6 {
+@(x=4-6) Minimum spacing of METALx wider than 648nm and longer than 648nm
+
+}
+
+Mx.6.7 {
+@(x=7-9) Minimum spacing of METALx wider than 1080nm and longer than 1080nm
+
+}
+
+Mx.6.8 {
+@(x=7-9) Minimum spacing of METALx wider than 1080nm and longer than 1080nm
+
+}
+
+Mx.6.9 {
+@(x=7-9) Minimum spacing of METALx wider than 1080nm and longer than 1080nm
+
+}
+
+Mx.6.10 {
+@(x=10-11) Minimum spacing of METALx wider than 2160nm and longer than 2160nm
+
+}
+
+Mx.6.11 {
+@(x=10-11) Minimum spacing of METALx wider than 2160nm and longer than 2160nm
+
+}
+
+Mx.6.12 {
+@(x=12-13) Minimum spacing of METALx wider than4320nm and longer than 4320nm
+
+}
+
+Mx.6.13 {
+@(x=12-13) Minimum spacing of METALx wider than4320nm and longer than 4320nm
+
+}
+
+Mx.7.1 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.7.2 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.7.3 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.7.7 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.7.8 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.7.9 {
+@(x=1-3,7-9) Double patterning Error
+
+}
+
+Mx.8.1 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Mx.8.2 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Mx.8.3 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Mx.8.7 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Mx.8.8 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Mx.8.9 {
+@(x=1-3,7-9) Density Balancing Rule: The density ofdecomposed metals should be between 23 and 77%
+
+}
+
+Vx.1.1 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.2 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.4 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.5 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.7 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.8 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.10 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.12 {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.VRDL {
+@(x=1,2,4,5,7,8,10,12,VRDL) Vx shape is square
+
+}
+
+Vx.1.3 {
+@(x=3,6,9,11) Vx shape is rectangle
+
+}
+
+Vx.1.6 {
+@(x=3,6,9,11) Vx shape is rectangle
+
+}
+
+Vx.1.9 {
+@(x=3,6,9,11) Vx shape is rectangle
+
+}
+
+Vx.1.11 {
+@(x=3,6,9,11) Vx shape is rectangle
+
+}
+
+Vx.2.1 {
+@(x=1,2) Vx is a square with 15nm edge length
+
+}
+
+Vx.2.2 {
+@(x=1,2) Vx is a square with 15nm edge length
+
+}
+
+Vx.2.3 {
+@(x=3) Vx is a rectangle with 15nm horizontal edge and 24nm vertical edge
+
+}
+
+Vx.2.4 {
+@(x=4,5) Vx is a square with 24nm edge length
+
+}
+
+Vx.2.5 {
+@(x=4,5) Vx is a square with 24nm edge length
+
+}
+
+Vx.2.6 {
+@(x=6) Vx is a rectangle with 40nm horizontal edge and 24nm vertical edge
+
+}
+
+Vx.2.7 {
+@(x=7,8) Vx is a square with 40nm edge length
+
+}
+
+Vx.2.8 {
+@(x=7,8) Vx is a square with 40nm edge length
+
+}
+
+Vx.2.9 {
+@(x=9) V9 is a rectangle with 40nm horizontal edge and 80nm vertical edge
+
+}
+
+Vx.2.10 {
+@(x=10) V10 is a square with 80nm edge length
+
+}
+
+Vx.2.11 {
+@(x=11) V11 is a rectangle with 80nm horizontal edge and 160nm vertical edge
+
+}
+
+Vx.2.12 {
+@(x=12,VRDL) V12 is a square with 160nm edge length
+
+}
+
+Vx.2.VRDL {
+@(x=12,VRDL) V12 is a square with 160nm edge length
+
+}
+
+Vx.3.1 {
+@(x=1,2) 15nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3.2 {
+@(x=1,2) 15nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3a.3 {
+@(x=3) 15nm Minimum horizontal spacing of Vx - Full alignment
+
+}
+
+Vx.3b.3 {
+@(x=3) 24nm Minimum vertical spacing of Vx - Full alignment
+
+}
+
+Vx.3.4 {
+@(x=4,5) 24nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3.5 {
+@(x=4,5) 24nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3a.6 {
+@(x=6) 40nm Minimum horizontal spacing of Vx - Full alignment
+
+}
+
+Vx.3b.6 {
+@(x=6) 24nm Minimum vertical spacing of Vx - Full alignment
+
+}
+
+Vx.3.7 {
+@(x=7,8) 40nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3.8 {
+@(x=7,8) 40nm Minimum spacing of Vx - Full alignment
+
+}
+
+Vx.3a.9 {
+@(x=9) 40nm Minimum horizontal spacing of Vx - Full alignment
+
+}
+
+Vx.3b.9 {
+@(x=9) 80nm Minimum vertical spacing of V9 - Full alignment
+
+}
+
+Vx.3.10 {
+@(x=10) 80nm Minimum spacing of V10 - Full alignment
+
+}
+
+Vx.3a.11 {
+@(x=11) 80nm Minimum horizontal spacing of V11 - Full alignment
+
+}
+
+Vx.3b.11 {
+@(x=11) 160nm Minimum vertical spacing of V11 - Full alignment
+
+}
+
+Vx.3.12 {
+@(x=12, VRDL) 160nm Minimum spacing of V12 - Full alignment
+
+}
+
+Vx.3.VRDL {
+@(x=12, VRDL) 160nm Minimum spacing of V12 - Full alignment
+
+}
+
+Vx.4.1 { 
+@(x=1-12) Vx should be enclosed between M1 and M2
+NOT M1 V1
+NOT M2 V1
+}
+
+Vx.4.2 { 
+@(x=1-12) Vx should be enclosed between M2 and M3
+NOT M2 V2
+NOT M3 V2
+}
+
+Vx.4.3 { 
+@(x=1-12) Vx should be enclosed between M3 and M4
+NOT M3 V3
+NOT M4 V3
+}
+
+Vx.4.4 { 
+@(x=1-12) Vx should be enclosed between M4 and M5
+NOT M4 V4
+NOT M5 V4
+}
+
+Vx.4.5 { 
+@(x=1-12) Vx should be enclosed between M5 and M6
+NOT M5 V5
+NOT M6 V5
+}
+
+Vx.4.6 { 
+@(x=1-12) Vx should be enclosed between M6 and M7
+NOT M6 V6
+NOT M7 V6
+}
+
+Vx.4.7 { 
+@(x=1-12) Vx should be enclosed between M7 and M8
+NOT M7 V7
+NOT M8 V7
+}
+
+Vx.4.8 { 
+@(x=1-12) Vx should be enclosed between M8 and M9
+NOT M8 V8
+NOT M9 V8
+}
+
+Vx.4.9 { 
+@(x=1-12) Vx should be enclosed between M9 and M10
+NOT M9 V9
+NOT M10 V9
+}
+
+Vx.4.10 { 
+@(x=1-12) Vx should be enclosed between M10 and M11
+NOT M10 V10
+NOT M11 V10
+}
+
+Vx.4.11 { 
+@(x=1-12) Vx should be enclosed between M11 and M12
+NOT M11 V11
+NOT M12 V11
+}
+
+Vx.4.12 { 
+@(x=1-12) Vx should be enclosed between M12 and M13
+NOT M12 V12
+NOT M13 V12
+}
+
+Vx.4.VRDL {
+@Vx should be enclosed between M13 and RDL
+NOT M13 VRDL
+NOT RDL VRDL
+}
+
+Vx.5.1 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.2 {
+@(x=2) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.3 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.4 {
+@(x=4,6,8,10,12) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.5 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.6 {
+@(x=4,6,8,10,12) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.7 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.8 {
+@(x=4,6,8,10,12) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.9 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.10 {
+@(x=4,6,8,10,12) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.11 {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.12 {
+@(x=4,6,8,10,12) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.5.VRDL {
+@(x=1,3,5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides, horizontal direction
+
+}
+
+Vx.6.1 {
+@(x=1,3) Vx enclosure by Mx on two opposite sides, vertical direction
+
+}
+
+Vx.6.2 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.3 {
+@(x=1,3) Vx enclosure by Mx on two opposite sides, vertical direction
+
+}
+
+Vx.6.4 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.5 {
+@(x=5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.6 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.7 {
+@(x=5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.8 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.9 {
+@(x=5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.10 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.11 {
+@(x=5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.12 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.6.VRDL {
+@(x=5,7,9,11,VRDL) Vx enclosure by Mx on two opposite sides,vertical direction
+
+}
+
+Vx.7.1 {
+@(x=1,3) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.2 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.3 {
+@(x=1,3) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.4 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.5 {
+@(x=5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.6 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.7 {
+@(x=5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.8 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.9 {
+@(x=5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.10 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.11 {
+@(x=5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.12 {
+@(x=2,4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, horizontal direction
+
+}
+
+Vx.7.VRDL {
+@(x=VRDL) VRDL enclosure by RDL in horizontal direction
+
+}
+
+Vx.8.1 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.2 {
+@(x=2) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.3 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.4 {
+@(x=4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.5 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.6 {
+@(x=4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.7 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.8 {
+@(x=4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.9 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.10 {
+@(x=4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.11 {
+@(x=1,3,5,7,9,11) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.12 {
+@(x=4,6,8,10,12) Vx enclosure by Mx+1 on two opposite sides, vertical direction
+
+}
+
+Vx.8.VRDL {
+@(x=VRDL) VRDL enclosure by RDL in vertical direction
+
+}
+
+Vx.9.1 {
+@(x=1,2) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.2 {
+@(x=1,2) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.3 {
+@(x=3) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.4 {
+@(x=4,5) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.5 {
+@(x=4,5) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.6 {
+@(x=6) Minimum area overlap between Mx and Vx
+
+}
+
+Vx.9.7 {
+@(x=7,8) Minimum area overlap between M7 and V7
+
+}
+
+Vx.9.8 {
+@(x=7,8) Minimum area overlap between M7 and V7
+
+}
+
+Vx.9.9 {
+@(x=9) Minimum area overlap between M9 and V9
+
+}
+
+Vx.9.10 {
+@(x=10) Minimum area overlap between M10 and V10
+
+}
+
+Vx.9.11 {
+@(x=11) Minimum area overlap between M11 and V11
+
+}
+
+Vx.9.12 {
+@(x=12,VRDL) Minimum area overlap between M12 and V12
+
+}
+
+RDL.1 {
+@RDL width minimum
+
+}
+
+RDL.2 {
+@RDL spacing minimum
+
+}
+
+GRID.ALL {
+@0.5nm Shapes on all layers must be on a 0.5 nm grid
+
+}
+
+ANTENNA.ALL {
+@50:1 Ratio of Maximum Allowed (GATE or MetalLayer Area) to transistor Gate Area
+
+}
