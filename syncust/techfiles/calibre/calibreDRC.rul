@@ -67,6 +67,8 @@ VARIABLE NW_5 0.007
 VARIABLE ACT_1 0.021
 VARIABLE ACT_2 0.0215
 VARIABLE ACT_3 0.084
+VARIABLE ACT_4_A 0.015
+VARIABLE ACT_4_B 1
 VARIABLE ACT_5 0.010
 
 VARIABLE BPR_1 0.0315
@@ -344,111 +346,147 @@ VARIABLE RDL_2 1.6
 
 VARIABLE GRID 0.005 //5NM
 
+DRC RESULTS DATABASE "/home/vverm2/STDCELL/test_drc"
 
 //Enabling incremental connectivity for antenna rule checks
 DRC Incremental Connect Yes
 
 ////////////////////////////////////////////////////////////
-// TIME TO DO THE FUNNY
+// NW LAYER RULES
 ////////////////////////////////////////////////////////////
 
 NW.1 {
-@Minimum vertical width of NW
-
+@Minimum vertical width of NW = ^NW_1 nm
+H_NW_EDGE = NW ANGLE == 0
+INTERNAL H_NW_EDGE < NW_1
 }
 
 NW.2 {
-@Minimum horizontal width of NW
-
+@Minimum horizontal width of NW = ^NW_2 nm
+V_NW_EDGE = NW ANGLE == 90
+INTERNAL V_NW_EDGE < NW_2
 }
 
 NW.3 {
-@Minimum area/enclosed area of NW
-
+@Minimum area/enclosed area of NW = ^NW_3 nm2
+AREA NW < NW_3
 }
 
 NW.4 {
 @NW must be orthogonal
-
+ANGLE NW >0 <90
 }
 
 NW.5 {
-@Minimum extension of NW past GATE (not cut by GCUT)
-
+@Minimum extension of NW past GATE (not cut by GCUT) = ^NW_5 nm
+INTERNAL NW GATE < NW_5
 }
 
-ACT.1 {
-@Minimum vertical width of ACT
 
+////////////////////////////////////////////////////////////
+// ACT LAYER RULES
+////////////////////////////////////////////////////////////
+
+ACT.1 {
+@Minimum vertical width of ACT = ^ACT_1 nm
+H_ACT_EDGE = ACT ANGLE == 0
+INTERNAL H_ACT_EDGE < ACT_1
 }
 
 ACT.2 {
-@Minimum vertical spacing of ACT
-
+@Minimum vertical spacing of ACT = ^ACT_2 nm
+H_ACT_EDGE = ACT ANGLE == 0
+EXTERNAL H_ACT_EDGE < ACT_2
 }
 
 ACT.3 {
-@Minimum horizontal width of ACT
-
+@Minimum horizontal width of ACT = ^ACT_3 nm
+V_ACT_EDGE = ACT ANGLE == 90
+INTERNAL V_ACT_EDGE < ACT_3
 }
 
 ACT.4 {
 @ACT should be continuous
-
+//This rule doesn't actually make much sense to me?  
+//Can't you just check for breaks using different commands? 
+//Not like I would know I'm like learning this for the first time
+ACT1i = ACT AND DUMMY
+EXTERNAL ACT1i < ACT_4_A
+EXTERNAL ACT < ACT_4_B
 }
 
 ACT.5 {
-@Minimum vertical spacing between ACT and BPR
-
+@Minimum vertical spacing between ACT and BPR = ^ACT_5 nm
+H_ACT_EDGE = ACT ANGLE == 0
+EXTERNAL H_ACT_EDGE BPR < ACT_5
 }
 
 ACT.6 {
 @ACT may not bend
-
+CONVEX EDGE ACT ANGLE1 > 90 ANGLE2 > 0
 }
 
 ACT.7 {
 @ACT must end inside DUMMY layer
-
+ACT_lineend = ACT ANGLE == 90
+INTERNAL ACT_lineend DUMMY < 0.0005 // I don't think this is right?  Someone explain to me.... 
+ENC ACT_lineend DUMMY < 0.0005 //I don't know if this is right either? I'm not sure if this guarantees that the end will be in dummy layer
 }
 
-BPR.1 {
-@BPR Vertical Width
 
+////////////////////////////////////////////////////////////
+// BPR LAYER RULES
+////////////////////////////////////////////////////////////
+
+BPR.1 {
+@BPR Vertical Width = ^BPR_1 nm
+H_BPR_EDGES = BPR ANGLE == 0
+INTERNAL H_BPR_EDGES < BPR_1
 }
 
 BPR.2 {
-@Minimum vertical spacing between BPR LAYERS
-
+@Minimum vertical spacing between BPR LAYERS = ^BPR_2 nm
+H_BPR_EDGES = BPR ANGLE == 0
+EXTERNAL H_BPR_EDGES < BPR_2
 }
 
 BPR.3 {
 @BPR must be continuous
-
+//This rule doesn't actually make much sense to me?  
+//Can't you just check for breaks using different commands? 
+//Not like I would know I'm like learning this for the first time
+EXTERNAL BPR < 0.0001
 }
 
 BPR.4 {
 @BPR may not bend
-
+CONVEX EDGE BPR ANGLE1 > 90 ANGLE2 > 0
 }
+
+
+////////////////////////////////////////////////////////////
+// VBPR LAYER RULES
+////////////////////////////////////////////////////////////
 
 VBPR.1 {
 @VBPR Must be rectangle
-
+NOT RECTANGLE VBPR
 }
 
 VBPR.2 {
-@Exact VERTICAL width of VBPR
-
+@Exact VERTICAL width of VBPR = ^VBPR_2 nm
+H_VBPR_EDGE = VBPR ANGLE == 0
+INTERNAL H_VBPR_EDGE > 0 < VBPR_2
+INTERNAL H_VBPR_EDGE > VBPR_2 < 1000    //1000 is an arbitrary large value
 }
-
 
 VBPR.3 {
-@Exact HORIZONTAL length of VBPR
-
+@Exact HORIZONTAL length of VBPR = ^VBPR_3
+V_VBPR_EDGE = VBPR ANGLE == 90
+INTERNAL V_VBPR_EDGE > 0 < VBPR_3
+INTERNAL V_VBPR_EDGE > VBPR_3 < 1000    //1000 is an arbitrary large value
 }
-
-
+/*
 VBPR.4 {
 @VBPR enclosure by BPR on two opposite sides, horizontal direction
 
@@ -991,7 +1029,7 @@ Mx.2.10 {
 
 } 
 
-Mx.2.10 {
+Mx.2.11 {
 @(x=10-11) 80nm METALx spacing minimum
 
 } 
@@ -1953,3 +1991,4 @@ ANTENNA.ALL {
 @50:1 Ratio of Maximum Allowed (GATE or MetalLayer Area) to transistor Gate Area
 
 }
+*/
